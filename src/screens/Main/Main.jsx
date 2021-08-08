@@ -14,7 +14,7 @@ export function Main(){
     const reduxDispatch = useDispatch();
 
     const arrVideoList = useSelector((state) => state.videostore.videos);
-console.log(arrVideoList);
+    const status = useSelector((state) => state.videostore.status);
   /*
 const handleSubmit = async () => {
     const response = await apiGetVideo.get('/search', {
@@ -40,11 +40,11 @@ reduxDispatch(addPosts());
             <button >OK</button>
           
           <ul>
-              {arrVideoList.map(() =>{})}
+              {arrVideoList.map(() => {})}
           </ul>
-           <h2>main</h2>
+           <h2>main</h2> 
+           {status==='fullfiled' ? (<VideoList/>) : null }
            <Search />
-           <VideoList />
         </div>
     );
 }

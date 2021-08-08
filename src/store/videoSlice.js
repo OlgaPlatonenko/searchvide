@@ -8,7 +8,7 @@ export const getVideoThunk = createAsyncThunk(
     try {
       const response = await apiGetVideo.get('/search', {
         params: {
-            q: 'москва слезам не верит'
+            q: 'звездные войны'
         }
     })
     const videos = response.data.items; 
