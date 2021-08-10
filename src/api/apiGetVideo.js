@@ -1,10 +1,10 @@
 //AIzaSyCfcNixMSMFag5sslJqEyuhGapVw-0JbP4
 import axios from "axios";
 
-const KEY = 'AIzaSyCfcNixMSMFag5sslJqEyuhGapVw-0JbP4';
+const KEY = 'AIzaSyBw00rbu07aXzi_-_uNqvohVEJBkD-YDSY';
 const YOUTUBE_PLAYLIST_ITEMS_API = 'https://www.googleapis.com/youtube/v3/playlistitems'
 
-export const getVideo = axios.create({
+export const apiGetVideo = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3/',
     params: {
         part: 'snippet',
@@ -13,7 +13,7 @@ export const getVideo = axios.create({
     }
 });
 
-export default getVideo;
+export default apiGetVideo;
 
 /*
 async function getToken() {

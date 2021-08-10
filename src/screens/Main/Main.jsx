@@ -1,52 +1,45 @@
 //import { getFilmsList } from '../../api/apigGetVideo';
 import { useEffect } from 'react';
 import apiGetVideo from '../../api/apiGetVideo';
-import { Search, VideoList } from '../../components';
+import { Search, VideoList, Header } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { 
-    getVideoThunk,
-    addVideos,
+import { SaveQuery } from '../SaveQuery/SaveQuery';
+import {
+  getVideoThunk,
+  addVideos,
 } from '../../store/videoSlice';
 
-export function Main(){
+import styles from './Main.module.css'
 
-    const reduxDispatch = useDispatch();
+export function Main() {
 
-    const arrVideoList = useSelector((state) => state.videostore.videos);
-    const status = useSelector((state) => state.videostore.status);
-  /*
-const handleSubmit = async () => {
-    const response = await apiGetVideo.get('/search', {
-        params: {
-            q: 'москва слезам не верит'
-        }
-    })
-    const videos = response.data.items; 
-    reduxDispatch(addVideos(videos));
-    console.log(videos);
-}
-  */
-useEffect(() => {
-    reduxDispatch(getVideoThunk());
-  },[reduxDispatch]);
+  const reduxDispatch = useDispatch();
 
-/*  const handleSubmit = () => {
-reduxDispatch(addPosts());
-  }*/
+  const arrVideoList = useSelector((state) => state.videostore.videos);
+  const status = useSelector((state) => state.videostore.status);
+  const searchingString = useSelector((state) => state.videostore.searchingString);
+  const isShowModal = useSelector((state) => state.videostore.isShowModal);
 
-    return(
-        <div>
-            <button >OK</button>
-          
-          <ul>
-              {arrVideoList.map(() => {})}
-          </ul>
-           <h2>main</h2> 
-           {status==='fullfiled' ? (<VideoList/>) : null }
-           <Search />
-        </div>
-    );
+ /* useEffect(() => {
+    reduxDispatch(getVideoThunk(searchingString));
+  }, [reduxDispatch]);
+*/
+ 
+  return (
+    <div >
+      <Header />
+      <div className={styles.containerMain}>
+        <Search />
+     <VideoList />
+              </div>
+      <div>
+        {isShowModal ? <SaveQuery />: null}
+
+      </div>
+    </div>
+  );
 }
 
 export default Main;
+
+/*  {status==='fullfiled' ? (<VideoList/>) : null }*/

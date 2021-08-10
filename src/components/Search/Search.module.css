@@ -1,0 +1,22 @@
+.searchTitle{
+font-family: 'Roboto';
+font-weight: 400;
+font-size: 36px;
+text-align: center;
+margin-bottom: 40px;
+}
+
+.formSearch{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.searchBtn{
+    display: block;
+}
+
+.searcContainer{
+    display: flex;
+    justify-content: center;
+}

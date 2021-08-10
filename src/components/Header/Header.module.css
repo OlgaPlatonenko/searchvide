@@ -1,0 +1,55 @@
+.container{
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 15px;
+   
+}
+
+.menucontainer{
+    width: 100%;  
+}
+
+.menucontainer::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #1390E5;   
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.menuWrapper{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.menuleft{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+   
+    
+}
+
+.menuright{
+    position: absolute;
+    right: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #1390E5;
+}
+
+.menuitem{
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #1390E5;
+    margin-left: 20px;
+}
+

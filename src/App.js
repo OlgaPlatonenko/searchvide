@@ -1,13 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 import { Main } from './screens/';
+import { Container } from './components';
+import {RouterView } from './Router';
 
 function App() {
   return (
     <div>
-<Main />
+      <RouterView>
+         < Main />
+         </RouterView>
+     
     </div>
   );
 }
 
 export default App;
+
+/**<Container >
+        <RouterView />
+      </Container>**/
