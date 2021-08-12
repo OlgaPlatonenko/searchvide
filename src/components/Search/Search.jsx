@@ -37,14 +37,15 @@ function Search() {
     };
 
     return (
-        <div >
+        <div className={styles.searchwrapper}>
             <div className={styles.searchTitle}>Поиск видео</div>
-            <div className={styles.searcContainer}>
+            <div className={styles.searchContainer}>
                 <form className={styles.formSearch}>
                     <input
                         placeholder='Что хотите посмотреть?...'
                         value={searchingString}
-                        onChange={(e) => handleSearchInput(e.target.value)}></input>
+                        onChange={(e) => handleSearchInput(e.target.value)}
+                        className={styles.formSearchinput}></input>
 
                 </form>
                 <button
@@ -53,7 +54,12 @@ function Search() {
                 >
                     Найти
                 </button>
-                <button onClick={() => reduxDispatch(setModalShow())}>Сохранить запрос</button>
+                
+                <div
+                    onClick={() => reduxDispatch(setModalShow())}
+                    className={styles.savebtn}
+                ><i class="fa fa-heart-o fa-2x " aria-hidden="true"></i>
+                </div>
             </div>
 
         </div>

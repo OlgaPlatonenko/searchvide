@@ -1,3 +1,14 @@
+.containerFav{
+    max-width: 100vw;
+    height: 100vh;
+    padding-left: 200px;
+    padding-right: 200px; 
+    padding-top: 50px;
+    background-color: #E5E5E5;
+   
+    
+}
+
 .listfavourite{
     list-style: none;
 }

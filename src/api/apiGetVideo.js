@@ -15,6 +15,14 @@ export const apiGetVideo = axios.create({
 
 export default apiGetVideo;
 
+export const apiGetVideoStat = axios.create({
+    baseURL: 'https://www.googleapis.com/youtube/v3/videos',
+    params: {
+        part: 'statistic',
+        key: KEY,
+    }
+});
+
 /*
 async function getToken() {
     const respToken = await fetch('https://fe08-films.herokuapp.com/auth', {

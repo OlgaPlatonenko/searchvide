@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getVideo } from '../api/apiGetVideo';
 import apiGetVideo from '../api/apiGetVideo';
 
 
@@ -11,9 +10,8 @@ export const getVideoThunk = createAsyncThunk(
         params: {
             q: str,
         }
-    })
-    console.log(response.data);
-    const videos = response.data.items; 
+    }) 
+    const videos = response.data;    
     return videos;
     } catch(err) {
       return err;
@@ -35,6 +33,9 @@ const videoSlice = createSlice({
       sortByOfQuery:null,
     },
     allQueries: [],
+    total: 0,
+    isList: true,
+    isTable: false,
    },
 
   reducers: {
@@ -74,6 +75,31 @@ const videoSlice = createSlice({
       state.querySaved.nameOfQuery = action.payload;
     },    
 
+    /*isShowHow(state, action){
+      state.isList = !state.isList;
+      state.isTable =!state.isTable;
+    },*/
+
+    isShowListTrue(state, action){
+      state.isList = true;
+      state.isTable = false;
+     },
+
+     isShowListFalse(state, action){
+      state.isList = false;
+      state.isTable = true;
+     },
+
+     isShowTableTrue(state, action){
+      state.isList = false;
+      state.isTable = true;
+     },
+
+     isShowTableFalse(state, action){
+      state.isList = true;
+      state.isTable = false;
+     },
+ 
   },
 
   extraReducers: {
@@ -85,8 +111,8 @@ const videoSlice = createSlice({
     },
     [getVideoThunk.fulfilled]: (state, action) => {
       state.status = 'fullfiled';
-      state.videos = action.payload;
-      console.log(action.payload);
+      state.videos = action.payload.items;      
+      state.total =  action.payload.pageInfo.totalResults;  
     },
   },
 },
@@ -103,6 +129,10 @@ export const {
   addQueries,
   inputSearchNull,
   addQueriesReload,
+  isShowListTrue,
+  isShowListFalse,
+  isShowTableTrue,
+  isShowTableFalse,
 } = videoSlice.actions;
 
 export default videoSlice.reducer;

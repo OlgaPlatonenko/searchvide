@@ -1,7 +1,7 @@
 //import { getFilmsList } from '../../api/apigGetVideo';
 import { useEffect } from 'react';
 import apiGetVideo from '../../api/apiGetVideo';
-import { Search, VideoList, Header } from '../../components';
+import { Search, VideoList, Header, VideoListTable } from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { SaveQuery } from '../SaveQuery/SaveQuery';
 import {
@@ -19,21 +19,21 @@ export function Main() {
   const status = useSelector((state) => state.videostore.status);
   const searchingString = useSelector((state) => state.videostore.searchingString);
   const isShowModal = useSelector((state) => state.videostore.isShowModal);
+  const isList = useSelector((state) => state.videostore.isList);
+  const isTable = useSelector((state) => state.videostore.isTable);
 
- /* useEffect(() => {
-    reduxDispatch(getVideoThunk(searchingString));
-  }, [reduxDispatch]);
-*/
- 
+
   return (
     <div >
       <Header />
       <div className={styles.containerMain}>
         <Search />
-     <VideoList />
-              </div>
+        {(status === 'fullfiled') && (isList) ? <VideoList /> : (
+          (status === 'fullfiled') && (isTable) ? <VideoListTable /> : null
+        )}
+      </div>
       <div>
-        {isShowModal ? <SaveQuery />: null}
+        {isShowModal ? <SaveQuery /> : null}
 
       </div>
     </div>

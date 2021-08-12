@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider as StoreProvider } from 'react-redux';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 import store from './store';
 import './index.css';
